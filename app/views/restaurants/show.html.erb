@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+# Rails 能夠直接渲染 @restaurant 是因為 Rails 的渲染機制會自動尋找對應的部分視圖（partial view）。這是由於 Rails 預設的 部分視圖渲染 行為。
+# 當你在 render 方法中傳遞一個實例變數（例如 @restaurant），Rails 會自動去找一個名為 _restaurant.html.erb 的部分視圖文件，這個文件會包含該物件的 HTML 渲染邏輯。
+# 部分視圖的名稱通常是 模型名稱的小寫字母並加上下劃線前綴（例如 restaurant 變數會對應到 _restaurant.html.erb）。
 <%= render @restaurant %>
 
 <div>
   <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
   <%= link_to "Back to restaurants", restaurants_path %>
 
+  # link_to 預設是發送 GET 請求，而刪除操作應該使用 DELETE 請求。GET 請求會被認為是無副作用的，這就使得它不適合用於刪除資料。button_to 可以生成一個表單，並使用 method: :delete 發送 DELETE 請求。
   <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
 </div>
