@@ -35,6 +35,8 @@ class RestaurantsController < ApplicationController
   end
 
   # PATCH/PUT /restaurants/1 or /restaurants/1.json
+
+  # 在 Ruby on Rails 中，render 方法用於呈現視圖（view），即從控制器向用戶返回 HTML、JSON 或其他格式的響應。render 可以用於顯示視圖模板、返回部分視圖、或直接返回數據等。它的運作方式會根據不同的情況有所不同。
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
