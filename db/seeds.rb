@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# db/seeds.rb
+puts "Cleaning database..."
+Restaurant.destroy_all
+
+puts "Creating restaurants..."
+dishoom = {name: "八方雲集", address: "7 Boundary St, London E2 7JE", rating: 5}
+pizza_east =  {name: "麥當勞", address: "56A Shoreditch High St, London E1 6PQ", rating: 4}
+
+[dishoom, pizza_east].each do |attributes|
+  restaurant = Restaurant.create!(attributes)
+  puts "Created #{restaurant.name}"
+end
+puts "Finished!"
