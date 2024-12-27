@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
+  #:restaurants 是資源的名稱，指的是與 Restaurant 模型相關的路由。這樣會自動創建 7 個標準路由對應的 URL 及其處理方法，分別是：
   resources :restaurants
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-
-  # Defines the root path route ("/")
-  # root "posts#index"
   root "restaurants#index"
 end
